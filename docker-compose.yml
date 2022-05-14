@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./backend
+    volumnes:
+      - app/node_modules
+      - ./backend:/app
+  frontend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./frontedn
+    volumnes:
+      - app/node_modules
+      - ./frontend:/app
