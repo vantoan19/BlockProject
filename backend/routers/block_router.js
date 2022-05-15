@@ -50,7 +50,7 @@ router.delete('/api/delete', (req, res) => {
 router.post('/api/duplicate/:path', (req, res) => {
     const path = req.params.path
 
-    // try {
+    try {
         !path && res.status(400).send('Missing path field')
 
         const targetBlock = getBlockByPath(page, path)
@@ -62,14 +62,14 @@ router.post('/api/duplicate/:path', (req, res) => {
         targetBlock.duplicate(parentBlock)
 
         res.send('Duplicated the block successfully')
-    // }
-    // catch (error) {
-    //     res.status(400).send(error)
-    // }
+    }
+    catch (error) {
+        res.status(400).send(error)
+    }
 })
 
 router.patch('/api/move', (req, res) => {
-    // try {
+    try {
         if (!req.body.sourcePath || !req.body.targetPath)
             res.status(400).send('Missing source path field or target path field')
 
@@ -85,10 +85,10 @@ router.patch('/api/move', (req, res) => {
         sourceBlock.move(parentBlock, targetBlock, position)
 
         res.send('Moved successfully')
-    // }
-    // catch {
-    //     res.status(400).send(error)
-    // }
+    }
+    catch {
+        res.status(400).send(error)
+    }
 })
 
 router.get('/api/export', (req, res) => {

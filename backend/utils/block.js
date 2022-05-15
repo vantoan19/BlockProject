@@ -28,8 +28,7 @@ class Block {
 
     /** 
     * Constructs a block
-    * @summary Constructs a block by given block id, reference to parent block, and its content
-    * @param {Block} parentBlock - reference to its parent block
+    * @summary Constructs a block by the given content
     * @param {String} content - content of the block
     */
     constructor (content) {
@@ -50,6 +49,7 @@ class Block {
     /** 
     * Delete 
     * @summary Delete the block
+    * @param {Block/Array} - parent of the block, either page (Array) or a block
     */
     delete(parent) {
         delink(this, parent)
@@ -58,6 +58,7 @@ class Block {
     /** 
     * Duplicate
     * @summary Duplicate the block and its sub-block
+    * @param {Block/Array} - parent of the block, either page (Array) or a block
     */
     duplicate(parent) {
         const newBlock = cloneBlock(this)
@@ -74,6 +75,7 @@ class Block {
     /** 
     * Move the block
     * @summary Move the block to the target block at a specific position
+    * @param {Block/Array} - parent of the block, either page (Array) or a block
     * @param {Block} targetBlock - Target block
     * @param {Number} position - Position at the target block (the order)
     */
