@@ -1,0 +1,28 @@
+.block {
+  padding: 40px;
+  margin: 20px 0;
+  background-color: rgba(204, 204, 204, 0.15);
+  border-radius: 20px;
+}
+
+.block .header-wrapper {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.block .header-wrapper .go-in-icon {
+  font-size: 4rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.block .header-wrapper .block-content {
+  font-size: 3.6rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  width: 80%;
+}
+/*# sourceMappingURL=block.css.map */

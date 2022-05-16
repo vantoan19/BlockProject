@@ -1,0 +1,21 @@
+.sub-block {
+  padding: 15px;
+  background-color: rgba(204, 204, 204, 0.2);
+  border-radius: 15px;
+  margin: 10px 0;
+}
+
+.sub-block .article-icon {
+  font-size: 5.0rem;
+  color: #ccc;
+}
+
+.sub-block .sub-block-info {
+  margin-left: 20px;
+}
+
+.sub-block .sub-block-info .sub-block-content {
+  font-size: 2.0rem;
+  font-weight: 300;
+}
+/*# sourceMappingURL=subblock.css.map */

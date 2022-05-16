@@ -1,0 +1,29 @@
+.notebook-page {
+    width: 50vw;
+    min-height: 100vh;
+    padding: 60px 100px;
+    margin: 20px auto;
+    background-color: rgba($color: #ccc, $alpha: 0.1);
+    border-radius: 30px;
+
+    .page-header-wrapper{
+        justify-content: space-between;
+        margin-bottom: 40px;
+
+        .go-up-icon {
+            font-size: 4.0rem;
+            cursor: pointer;
+        }
+    
+        .page-header {
+            font-size: 4.0rem;
+        }
+
+        .page-id {
+            font-size: 1.6rem;
+            font-weight: 200;
+            color: #999;
+            font-style: italic;
+        }
+    }
+}

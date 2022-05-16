@@ -1,0 +1,142 @@
+openapi: 3.0.0
+info:
+  title: Block APIs
+  description: CRUD APIs to manipulate blocks
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:4000
+
+components:
+  schemas:
+    path:
+      type: string
+      description: Path to a block on the block tree
+      examples:
+        PathToRoot:
+          value: root
+          summary: Path to the root of page
+        PathToBlock:
+          value: root-0
+          summary: Path to the first block of the page
+        PathToSubBlock:
+          value: root-0-1
+          summary: Path to the first sub block of the first block
+
+paths:
+  /api/insert:
+    post:
+      summary: Insert a list of blocks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  path:
+                    $ref: '#/components/schemas/path'
+                    required: true
+                  content:
+                    type: string
+                    required: true
+                    description: Content of the block
+            example:
+              - path: root
+                content: Hello, I'm the first block of the page
+              - path: root
+                content: Hello, I'm the second block of the page
+              - path: root
+                content: Hello, I'm the third block of the page
+              - path: root-0
+                content: Hello, I'm a sub block of the first block
+              - path: root-0-0
+                content: Hello, I'm a sub block of the first sub block of the first block :))
+              - path: root-0-0-0
+                content: Hello, I'm a sub block of the first sub block of the first sub block of the first block :)))))
+      responses:
+        '200':
+          description: Inserted successfully
+        '400':
+          description: Bad request
+
+  /api/delete:
+    delete:
+      summary: Delete a list of blocks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  path:
+                    $ref: '#/components/schemas/path'
+                    required: true
+            example:
+              - path: root-0-0-0
+              - path: root-1
+      responses:
+        '200':
+          description: Deleted successfully
+        '400':
+          description: Bad request
+  /api/duplicate/{path}:
+    post:
+      summary: Duplicate a block, the newly added block will be right behind the duplicated block
+      parameters:
+        - name: path
+          in: path
+          required: true
+          description: The path to the block you want to duplicate
+          schema:
+            $ref: '#/components/schemas/path'
+          example: root-0
+      responses:
+        '200':
+          description: Duplicated successfully
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+  /api/move:
+    put:
+      summary: Move the source block to the target block, at a specified position
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sourcePath:
+                  $ref: '#/components/schemas/path'
+                  required: true
+                targetPath:
+                  $ref: '#/components/schemas/path'
+                  required: true
+                position:
+                  type: integer
+                  description: the position you want to move in, in target block
+            example:
+              sourcePath: root-0
+              targetPath: root-1
+              position: 0
+      responses:
+        '200':
+          description: Moved succesfully
+        '400':
+          description: Bad request
+        '404':
+          description: Not found
+  /api/export:
+    get:
+      summary: Returns a string presenting the blocks
+      responses:
+        '200':
+          description: OK
+

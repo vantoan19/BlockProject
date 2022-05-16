@@ -82,8 +82,10 @@ class Block {
     move(parent, targetBlock, position) {
         if (parent instanceof Block)
             parent.subBlocks = parent.subBlocks.filter(ref => ref !== this)
-        else
-            parent = parent.filter(ref !== this)
+        else {
+            const index = parent.findIndex(ref => ref === this)
+            parent.splice(index, 1)
+        }
 
         if (targetBlock instanceof Block)
             targetBlock.subBlocks.splice(position, 0, this)

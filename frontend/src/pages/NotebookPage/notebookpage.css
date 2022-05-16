@@ -1,0 +1,32 @@
+.notebook-page {
+  width: 50vw;
+  min-height: 100vh;
+  padding: 60px 100px;
+  margin: 20px auto;
+  background-color: rgba(204, 204, 204, 0.1);
+  border-radius: 30px;
+}
+
+.notebook-page .page-header-wrapper {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.notebook-page .page-header-wrapper .go-up-icon {
+  font-size: 4.0rem;
+  cursor: pointer;
+}
+
+.notebook-page .page-header-wrapper .page-header {
+  font-size: 4.0rem;
+}
+
+.notebook-page .page-header-wrapper .page-id {
+  font-size: 1.6rem;
+  font-weight: 200;
+  color: #999;
+  font-style: italic;
+}
+/*# sourceMappingURL=notebookpage.css.map */

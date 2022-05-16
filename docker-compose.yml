@@ -1,16 +1,18 @@
 version: '3'
 services:
   backend:
+    environment:
+      - PORT=4000
     build: 
       dockerfile: Dockerfile.dev
       context: ./backend
-    volumnes:
-      - app/node_modules
-      - ./backend:/app
+    ports:
+      - '4000:4000'
   frontend:
+    environment:
+      - PORT=3000
     build:
       dockerfile: Dockerfile.dev
-      context: ./frontedn
-    volumnes:
-      - app/node_modules
-      - ./frontend:/app
+      context: ./frontend
+    ports:
+      - '3000:3000'

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EAEP,OAAO,EAAE,IAAI;EACb,gBAAgB,EAAe,wBAAI;EACnC,aAAa,EAAE,IAAI;EACnB,MAAM,EAAE,MAAM;CAgBjB;;AArBD,AAQI,UARM,CAQN,aAAa,CAAC;EACV,SAAS,EAAE,MAAM;EACjB,KAAK,EAAE,IAAI;CACd;;AAXL,AAaI,UAbM,CAaN,eAAe,CAAC;EACZ,WAAW,EAAE,IAAI;CAMpB;;AApBL,AAgBQ,UAhBE,CAaN,eAAe,CAGX,kBAAkB,CAAC;EACf,SAAS,EAAE,MAAM;EACjB,WAAW,EAAE,GAAG;CACnB",
+    "sources": [
+        "subblock.scss"
+    ],
+    "names": [],
+    "file": "subblock.css"
+}
